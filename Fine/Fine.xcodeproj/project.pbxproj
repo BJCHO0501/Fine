@@ -18,6 +18,16 @@
 		4B18F0912980087B00015ACB /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 4B18F0902980087B00015ACB /* Then */; };
 		4B18F0942980088F00015ACB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4B18F0932980088F00015ACB /* RxCocoa */; };
 		4B18F0962980088F00015ACB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4B18F0952980088F00015ACB /* RxSwift */; };
+		4B18F0A1298018A800015ACB /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F098298018A700015ACB /* SCDream2.otf */; };
+		4B18F0A2298018A800015ACB /* SCDream6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F099298018A700015ACB /* SCDream6.otf */; };
+		4B18F0A3298018A800015ACB /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F09A298018A700015ACB /* SCDream3.otf */; };
+		4B18F0A4298018A800015ACB /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F09B298018A700015ACB /* SCDream5.otf */; };
+		4B18F0A5298018A800015ACB /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F09C298018A700015ACB /* SCDream4.otf */; };
+		4B18F0A6298018A800015ACB /* SCDream9.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F09D298018A700015ACB /* SCDream9.otf */; };
+		4B18F0A7298018A800015ACB /* SCDream8.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F09E298018A700015ACB /* SCDream8.otf */; };
+		4B18F0A8298018A800015ACB /* SCDream7.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F09F298018A800015ACB /* SCDream7.otf */; };
+		4B18F0A9298018A800015ACB /* SCDream1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F0A0298018A800015ACB /* SCDream1.otf */; };
+		4B18F0AB29801CCB00015ACB /* FontNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B18F0AA29801CCB00015ACB /* FontNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +38,16 @@
 		4B18F07C2980070900015ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B18F07F2980070900015ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B18F0812980070900015ACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B18F098298018A700015ACB /* SCDream2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream2.otf; sourceTree = "<group>"; };
+		4B18F099298018A700015ACB /* SCDream6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream6.otf; sourceTree = "<group>"; };
+		4B18F09A298018A700015ACB /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
+		4B18F09B298018A700015ACB /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
+		4B18F09C298018A700015ACB /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
+		4B18F09D298018A700015ACB /* SCDream9.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream9.otf; sourceTree = "<group>"; };
+		4B18F09E298018A700015ACB /* SCDream8.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream8.otf; sourceTree = "<group>"; };
+		4B18F09F298018A800015ACB /* SCDream7.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream7.otf; sourceTree = "<group>"; };
+		4B18F0A0298018A800015ACB /* SCDream1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream1.otf; sourceTree = "<group>"; };
+		4B18F0AA29801CCB00015ACB /* FontNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +86,7 @@
 		4B18F0722980070800015ACB /* Fine */ = {
 			isa = PBXGroup;
 			children = (
+				4B18F0972980189500015ACB /* Fonts */,
 				4B18F0732980070800015ACB /* AppDelegate.swift */,
 				4B18F0752980070800015ACB /* SceneDelegate.swift */,
 				4B18F0772980070800015ACB /* ViewController.swift */,
@@ -74,6 +95,23 @@
 				4B18F0812980070900015ACB /* Info.plist */,
 			);
 			path = Fine;
+			sourceTree = "<group>";
+		};
+		4B18F0972980189500015ACB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4B18F0AA29801CCB00015ACB /* FontNames.swift */,
+				4B18F0A0298018A800015ACB /* SCDream1.otf */,
+				4B18F098298018A700015ACB /* SCDream2.otf */,
+				4B18F09A298018A700015ACB /* SCDream3.otf */,
+				4B18F09C298018A700015ACB /* SCDream4.otf */,
+				4B18F09B298018A700015ACB /* SCDream5.otf */,
+				4B18F099298018A700015ACB /* SCDream6.otf */,
+				4B18F09F298018A800015ACB /* SCDream7.otf */,
+				4B18F09E298018A700015ACB /* SCDream8.otf */,
+				4B18F09D298018A700015ACB /* SCDream9.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +186,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B18F0A3298018A800015ACB /* SCDream3.otf in Resources */,
+				4B18F0A2298018A800015ACB /* SCDream6.otf in Resources */,
+				4B18F0A9298018A800015ACB /* SCDream1.otf in Resources */,
+				4B18F0A1298018A800015ACB /* SCDream2.otf in Resources */,
+				4B18F0A7298018A800015ACB /* SCDream8.otf in Resources */,
+				4B18F0A6298018A800015ACB /* SCDream9.otf in Resources */,
+				4B18F0A8298018A800015ACB /* SCDream7.otf in Resources */,
+				4B18F0A5298018A800015ACB /* SCDream4.otf in Resources */,
+				4B18F0A4298018A800015ACB /* SCDream5.otf in Resources */,
 				4B18F0802980070900015ACB /* LaunchScreen.storyboard in Resources */,
 				4B18F07D2980070900015ACB /* Assets.xcassets in Resources */,
 			);
@@ -161,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B18F0782980070800015ACB /* ViewController.swift in Sources */,
+				4B18F0AB29801CCB00015ACB /* FontNames.swift in Sources */,
 				4B18F0742980070800015ACB /* AppDelegate.swift in Sources */,
 				4B18F0762980070800015ACB /* SceneDelegate.swift in Sources */,
 			);
