@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B18F0742980070800015ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B18F0732980070800015ACB /* AppDelegate.swift */; };
 		4B18F0762980070800015ACB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B18F0752980070800015ACB /* SceneDelegate.swift */; };
-		4B18F0782980070800015ACB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B18F0772980070800015ACB /* ViewController.swift */; };
 		4B18F07D2980070900015ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F07C2980070900015ACB /* Assets.xcassets */; };
 		4B18F0802980070900015ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F07E2980070900015ACB /* LaunchScreen.storyboard */; };
 		4B18F0892980084D00015ACB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4B18F0882980084D00015ACB /* SnapKit */; };
@@ -28,13 +27,14 @@
 		4B18F0A8298018A800015ACB /* SCDream7.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F09F298018A800015ACB /* SCDream7.otf */; };
 		4B18F0A9298018A800015ACB /* SCDream1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B18F0A0298018A800015ACB /* SCDream1.otf */; };
 		4B18F0AB29801CCB00015ACB /* FontNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B18F0AA29801CCB00015ACB /* FontNames.swift */; };
+		4B60C57C2981680100392568 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60C57B2981680100392568 /* MainViewController.swift */; };
+		4B60C57F2981753800392568 /* ObjectListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60C57E2981753800392568 /* ObjectListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4B18F0702980070800015ACB /* Fine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B18F0732980070800015ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B18F0752980070800015ACB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4B18F0772980070800015ACB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B18F07C2980070900015ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B18F07F2980070900015ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B18F0812980070900015ACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +48,8 @@
 		4B18F09F298018A800015ACB /* SCDream7.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream7.otf; sourceTree = "<group>"; };
 		4B18F0A0298018A800015ACB /* SCDream1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream1.otf; sourceTree = "<group>"; };
 		4B18F0AA29801CCB00015ACB /* FontNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNames.swift; sourceTree = "<group>"; };
+		4B60C57B2981680100392568 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4B60C57E2981753800392568 /* ObjectListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +88,9 @@
 		4B18F0722980070800015ACB /* Fine */ = {
 			isa = PBXGroup;
 			children = (
+				4B60C578298167A900392568 /* Application */,
 				4B18F0972980189500015ACB /* Fonts */,
-				4B18F0732980070800015ACB /* AppDelegate.swift */,
-				4B18F0752980070800015ACB /* SceneDelegate.swift */,
-				4B18F0772980070800015ACB /* ViewController.swift */,
+				4B60C5772981674D00392568 /* Scene */,
 				4B18F07C2980070900015ACB /* Assets.xcassets */,
 				4B18F07E2980070900015ACB /* LaunchScreen.storyboard */,
 				4B18F0812980070900015ACB /* Info.plist */,
@@ -112,6 +113,32 @@
 				4B18F09D298018A700015ACB /* SCDream9.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4B60C5772981674D00392568 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				4B60C57D2981749700392568 /* MainView */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		4B60C578298167A900392568 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4B18F0732980070800015ACB /* AppDelegate.swift */,
+				4B18F0752980070800015ACB /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		4B60C57D2981749700392568 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				4B60C57B2981680100392568 /* MainViewController.swift */,
+				4B60C57E2981753800392568 /* ObjectListTableViewCell.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,10 +234,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B18F0782980070800015ACB /* ViewController.swift in Sources */,
 				4B18F0AB29801CCB00015ACB /* FontNames.swift in Sources */,
+				4B60C57F2981753800392568 /* ObjectListTableViewCell.swift in Sources */,
 				4B18F0742980070800015ACB /* AppDelegate.swift in Sources */,
 				4B18F0762980070800015ACB /* SceneDelegate.swift in Sources */,
+				4B60C57C2981680100392568 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
