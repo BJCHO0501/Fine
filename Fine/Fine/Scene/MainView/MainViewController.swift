@@ -39,12 +39,20 @@ class MainViewController: UIViewController {
         $0.backgroundColor = .clear
         $0.layer.cornerRadius = 20
     }
+    
+    private let searchListImageView = UIImageView(image: UIImage(named: "search_list"))
+    
+    private let searchTextField = UITextField().then {
+        $0.font = UIFont(name: "S-CoreDream-5Medium", size: 18)
+        $0.textAlignment = .left
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         listTableView.delegate = self
         listTableView.dataSource = self
         listTableView.showsVerticalScrollIndicator = false
+        listTableView.separatorStyle = .none
         listTableView.register(ObjectListTableViewCell.self, forCellReuseIdentifier: "ObjectCell")
         view.backgroundColor = UIColor(named: "gray1")
     }
@@ -63,6 +71,11 @@ extension MainViewController {
             listBackgroundView
         ].forEach({ view.addSubview($0) })
         
+        [
+            searchListImageView,
+            searchTextField
+        ].forEach({ searchBackgroundView.addSubview($0) })
+        
         listBackgroundView.addSubview(listTableView)
     }
     
@@ -80,7 +93,20 @@ extension MainViewController {
         }
         
         listTableView.snp.makeConstraints {
-            $0.top.bottom.left.right.equalToSuperview()
+            $0.top.bottom.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0))
+        }
+        
+        searchListImageView.snp.makeConstraints {
+            $0.width.equalTo(32)
+            $0.centerY.equalToSuperview()
+            $0.left.equalToSuperview().inset(15)
+        }
+        
+        searchTextField.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.left.equalTo(searchListImageView.snp.right).offset(6)
+            $0.right.lessThanOrEqualToSuperview().inset(15)
+            $0.right.greaterThanOrEqualToSuperview().inset(15)
         }
     }
 }
@@ -94,9 +120,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = listTableView.dequeueReusableCell(withIdentifier: "ObjectCell", for: indexPath) as? ObjectListTableViewCell else { return UITableViewCell() }
         
-        cell.emoji = data[indexPath.row]["emoji"]
-        cell.location = data[indexPath.row]["location"]
-        cell.objectName = data[indexPath.row]["objectName"]
+        cell.emojiLabel.text = data[indexPath.row]["emoji"]
+        cell.locationLabel.text = data[indexPath.row]["location"]
+        cell.objectNameLabel.text = data[indexPath.row]["objectName"]
         
         return cell
     }

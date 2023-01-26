@@ -10,30 +10,24 @@ import SnapKit
 import Then
 
 class ObjectListTableViewCell: UITableViewCell {
-    var emoji: String?
-    var location: String?
-    var objectName: String?
     
-    private let emojiLabel = UILabel().then {
+    let emojiLabel = UILabel().then {
         $0.font = UIFont.systemFont(ofSize: 45)
     }
     
-    private let locationLabel = UILabel().then {
+    let locationLabel = UILabel().then {
         $0.textColor = UIColor(named: "gray2")
         $0.font = UIFont(name: "S-CoreDream-5Medium", size: 10)
         $0.textAlignment = .left
     }
     
-    private let objectNameLabel = UILabel().then {
+    let objectNameLabel = UILabel().then {
         $0.textColor = .black
         $0.font = UIFont(name: "S-CoreDream-5Medium", size: 18)
         $0.textAlignment = .left
     }
     
     override func layoutSubviews() {
-        emojiLabel.text = emoji
-        locationLabel.text = location
-        objectNameLabel.text = objectName
         addSubviews()
         makeConstraints()
     }
