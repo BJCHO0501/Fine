@@ -8,8 +8,14 @@
 import UIKit
 import SnapKit
 import Then
+import RxSwift
+import RxCocoa
+import RealmSwift
 
 class MainViewController: UIViewController {
+    
+    let disposeBag = DisposeBag()
+    
     var data: [[String: String]] = [
         ["emoji": "✨", "location": "책상위", "objectName": "반짝이"],
         ["emoji": "💡", "location": "책상 오른쪽 위", "objectName": "작은 전구"],
@@ -25,6 +31,17 @@ class MainViewController: UIViewController {
         ["emoji": "🥽", "location": "선반 3번째", "objectName": "하얀 곰돌이"],
         ["emoji": "📝", "location": "선반 3번째", "objectName": "하얀 곰돌이"]
     ]
+    
+    private let makeObjectButton = UIButton(type: .contactAdd).then {
+        $0.backgroundColor = UIColor(named: "purple1")
+        $0.layer.shadowColor = UIColor(named: "gray2")?.cgColor
+        $0.layer.shadowRadius = 5
+        $0.layer.shadowOpacity = 1
+        $0.layer.shadowOffset = CGSize(width: 1, height: 1)
+        $0.layer.cornerRadius = 34
+        $0.setImage(UIImage(named: "plus"), for: .normal)
+        $0.tintColor = UIColor.white
+    }
     private let searchBackgroundView = UIView().then {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 20
@@ -55,6 +72,7 @@ class MainViewController: UIViewController {
         listTableView.separatorStyle = .none
         listTableView.register(ObjectListTableViewCell.self, forCellReuseIdentifier: "ObjectCell")
         view.backgroundColor = UIColor(named: "gray1")
+        bind()
     }
     
     override func viewDidLayoutSubviews() {
@@ -63,12 +81,26 @@ class MainViewController: UIViewController {
     }
 }
 
+extension MainViewController {
+    private func bind() {
+        makeObjectButton.rx.tap
+            .bind {
+                let prView = MakeObjectViewController()
+                prView.modalPresentationStyle = .fullScreen
+                
+                self.present(prView, animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
 // MARK: - makeConstraints, addSubviews
 extension MainViewController {
     private func addSubviews() {
         [
             searchBackgroundView,
-            listBackgroundView
+            listBackgroundView,
+            makeObjectButton
         ].forEach({ view.addSubview($0) })
         
         [
@@ -107,6 +139,12 @@ extension MainViewController {
             $0.left.equalTo(searchListImageView.snp.right).offset(6)
             $0.right.lessThanOrEqualToSuperview().inset(15)
             $0.right.greaterThanOrEqualToSuperview().inset(15)
+        }
+        
+        makeObjectButton.snp.makeConstraints {
+            $0.right.equalToSuperview().inset(35)
+            $0.bottom.equalToSuperview().inset(50)
+            $0.width.height.equalTo(68)
         }
     }
 }
