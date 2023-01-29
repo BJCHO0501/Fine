@@ -12,9 +12,14 @@ import RxSwift
 import RxCocoa
 import EmojiPicker
 
+enum CategoryColor {
+    case red, orange, yellow, green, blue, purple
+}
+
 class MakeObjectViewController: UIViewController {
     
     let disposeBag = DisposeBag()
+    var category: CategoryColor = .red
     
     private let backgroundView = UIView().then {
         $0.backgroundColor = .white
@@ -53,40 +58,23 @@ class MakeObjectViewController: UIViewController {
     
     private let manualTextField = CustomTextfield(placeholder: "자세한 설명을 입력해주요 :)")
     
-    private let redCategoryButton = UIButton().then {
-        $0.backgroundColor = UIColor(named: "red")
-        $0.layer.cornerRadius = 12.5
-    }
+    private let redCategoryButton = CategoryButton(color: UIColor(named: "red"), type: .red)
     
-    private let orangeCategoryButton = UIButton().then {
-        $0.backgroundColor = UIColor(named: "orange")
-        $0.layer.cornerRadius = 12.5
-    }
+    private let orangeCategoryButton = CategoryButton(color: UIColor(named: "orange"), type: .orange)
     
-    private let yellowCategoryButton = UIButton().then {
-        $0.backgroundColor = UIColor(named: "yellow")
-        $0.layer.cornerRadius = 12.5
-    }
+    private let yellowCategoryButton = CategoryButton(color: UIColor(named: "yellow"), type: .yellow)
     
-    private let greenCategoryButton = UIButton().then {
-        $0.backgroundColor = UIColor(named: "green")
-        $0.layer.cornerRadius = 12.5
-    }
+    private let greenCategoryButton = CategoryButton(color: UIColor(named: "green"), type: .green)
     
-    private let blueCategoryButton = UIButton().then {
-        $0.backgroundColor = UIColor(named: "blue")
-        $0.layer.cornerRadius = 12.5
-    }
+    private let blueCategoryButton = CategoryButton(color: UIColor(named: "blue"), type: .blue)
     
-    private let purpleCategoryButton = UIButton(type: .system).then {
-        $0.backgroundColor = UIColor(named: "purple2")
-        $0.layer.cornerRadius = 12.5
-    }
+    private let purpleCategoryButton = CategoryButton(color: UIColor(named: "purple1"), type: .purple)
     
     private let emojiButton = UIButton(type: .system).then {
         $0.backgroundColor = UIColor(named: "gray1")
         $0.layer.cornerRadius = 10
-        $0.setTitle("🎆", for: .normal)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 50)
+        $0.setTitle("📦", for: .normal)
     }
     
     private let enterButton = UIButton(type: .system).then {
@@ -100,8 +88,8 @@ class MakeObjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "gray1")
-        emojiButton.addTarget(self, action: #selector(emojiPresent), for: .touchUpInside)
-//        bind()
+        updateCategory()
+        bind()
     }
     
     override func viewDidLayoutSubviews() {
@@ -109,35 +97,29 @@ class MakeObjectViewController: UIViewController {
         makeConstraints()
     }
 }
-extension MakeObjectViewController: EmojiPickerDelegate {
-    func didGetEmoji(emoji: String) {
-        emojiButton.setTitle(emoji, for: .normal)
-    }
-}
 
-// MARK: - bind
+// MARK: - functions
 
 extension MakeObjectViewController {
-    @objc func emojiPresent() {
-        print("ddd")
-        let viewController = EmojiPickerViewController()
-        viewController.delegate = self
-        viewController.sourceView = emojiButton
-        present(viewController, animated: true)
+    private func updateCategory() {
+        [
+            redCategoryButton,
+            orangeCategoryButton,
+            yellowCategoryButton,
+            greenCategoryButton,
+            blueCategoryButton,
+            purpleCategoryButton
+        ].forEach {
+            if($0.categoryType == category) {
+                $0.check()
+            } else {
+                $0.uncheck()
+            }
+        }
     }
-    
-//    private func bind() {
-//        emojiButton.rx.tap
-//            .bind { [self] in
-//                let emojiViewController = EmojiPickerViewController()
-//                emojiViewController.delegate = self
-//                emojiViewController.sourceView = emojiButton
-//                present(emojiViewController, animated: true)
-//            }
-//            .disposed(by: disposeBag)
-//    }
 }
 
+// MARK: - addSubviews, makeConstraints, bind
 
 extension MakeObjectViewController {
     private func addSubviews() {
@@ -255,5 +237,72 @@ extension MakeObjectViewController {
             $0.bottom.equalToSuperview().inset(25)
             $0.height.equalTo(55)
         }
+    }
+    
+    private func bind() {
+        emojiButton.rx.tap
+            .bind { [self] in
+                let emojiViewController = EmojiPickerViewController()
+                emojiViewController.delegate = self
+                emojiViewController.sourceView = emojiButton
+                present(emojiViewController, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        enterButton.rx.tap
+            .bind {
+                print("next")
+            }
+            .disposed(by: disposeBag)
+        
+        redCategoryButton.rx.tap
+            .bind { [self] in
+                category = .red
+                updateCategory()
+            }
+            .disposed(by: disposeBag)
+        
+        orangeCategoryButton.rx.tap
+            .bind { [self] in
+                category = .orange
+                updateCategory()
+            }
+            .disposed(by: disposeBag)
+        
+        yellowCategoryButton.rx.tap
+            .bind { [self] in
+                category = .yellow
+                updateCategory()
+            }
+            .disposed(by: disposeBag)
+        
+        greenCategoryButton.rx.tap
+            .bind { [self] in
+                category = .green
+                updateCategory()
+            }
+            .disposed(by: disposeBag)
+        
+        blueCategoryButton.rx.tap
+            .bind { [self] in
+                category = .blue
+                updateCategory()
+            }
+            .disposed(by: disposeBag)
+        
+        purpleCategoryButton.rx.tap
+            .bind { [self] in
+                category = .purple
+                updateCategory()
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - EmojiPickerDelegate
+
+extension MakeObjectViewController: EmojiPickerDelegate {
+    func didGetEmoji(emoji: String) {
+        emojiButton.setTitle(emoji, for: .normal)
     }
 }

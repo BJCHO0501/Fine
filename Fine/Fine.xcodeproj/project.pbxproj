@@ -33,8 +33,9 @@
 		4B60C5842984EEB500392568 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4B60C5832984EEB500392568 /* RealmSwift */; };
 		4B60C5872984F29D00392568 /* ObjectDataBace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60C5862984F29D00392568 /* ObjectDataBace.swift */; };
 		4B60C58929850DDC00392568 /* MakeObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60C58829850DDC00392568 /* MakeObjectViewController.swift */; };
-		4B60C58D298529AF00392568 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4B60C58C298529AF00392568 /* EmojiPicker */; };
 		4B60C590298558B300392568 /* CustomTextfield .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60C58F298558B300392568 /* CustomTextfield .swift */; };
+		4B68D891298678B200A367B6 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4B68D890298678B200A367B6 /* EmojiPicker */; };
+		4B68D89329867DE700A367B6 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B68D89229867DE700A367B6 /* CategoryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		4B60C5862984F29D00392568 /* ObjectDataBace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDataBace.swift; sourceTree = "<group>"; };
 		4B60C58829850DDC00392568 /* MakeObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeObjectViewController.swift; sourceTree = "<group>"; };
 		4B60C58F298558B300392568 /* CustomTextfield .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextfield .swift"; sourceTree = "<group>"; };
+		4B68D89229867DE700A367B6 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B60C58D298529AF00392568 /* EmojiPicker in Frameworks */,
+				4B68D891298678B200A367B6 /* EmojiPicker in Frameworks */,
 				4B60C5842984EEB500392568 /* RealmSwift in Frameworks */,
 				4B60C5822984EEB500392568 /* Realm in Frameworks */,
 				4B18F0962980088F00015ACB /* RxSwift in Frameworks */,
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				4B60C58F298558B300392568 /* CustomTextfield .swift */,
+				4B68D89229867DE700A367B6 /* CategoryButton.swift */,
 			);
 			path = Componect;
 			sourceTree = "<group>";
@@ -205,7 +208,7 @@
 				4B18F0952980088F00015ACB /* RxSwift */,
 				4B60C5812984EEB500392568 /* Realm */,
 				4B60C5832984EEB500392568 /* RealmSwift */,
-				4B60C58C298529AF00392568 /* EmojiPicker */,
+				4B68D890298678B200A367B6 /* EmojiPicker */,
 			);
 			productName = Fine;
 			productReference = 4B18F0702980070800015ACB /* Fine.app */;
@@ -241,7 +244,7 @@
 				4B18F08F2980087B00015ACB /* XCRemoteSwiftPackageReference "Then" */,
 				4B18F0922980088F00015ACB /* XCRemoteSwiftPackageReference "RxSwift" */,
 				4B60C5802984EEB500392568 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				4B60C58B298529AE00392568 /* XCRemoteSwiftPackageReference "EmojiPicker" */,
+				4B68D88F298678B200A367B6 /* XCRemoteSwiftPackageReference "EmojiPicker" */,
 			);
 			productRefGroup = 4B18F0712980070800015ACB /* Products */;
 			projectDirPath = "";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B68D89329867DE700A367B6 /* CategoryButton.swift in Sources */,
 				4B18F0AB29801CCB00015ACB /* FontNames.swift in Sources */,
 				4B60C57F2981753800392568 /* ObjectListTableViewCell.swift in Sources */,
 				4B18F0742980070800015ACB /* AppDelegate.swift in Sources */,
@@ -535,12 +539,12 @@
 				kind = branch;
 			};
 		};
-		4B60C58B298529AE00392568 /* XCRemoteSwiftPackageReference "EmojiPicker" */ = {
+		4B68D88F298678B200A367B6 /* XCRemoteSwiftPackageReference "EmojiPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/htmlprogrammist/EmojiPicker.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				branch = develop;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -586,9 +590,9 @@
 			package = 4B60C5802984EEB500392568 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
-		4B60C58C298529AF00392568 /* EmojiPicker */ = {
+		4B68D890298678B200A367B6 /* EmojiPicker */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4B60C58B298529AE00392568 /* XCRemoteSwiftPackageReference "EmojiPicker" */;
+			package = 4B68D88F298678B200A367B6 /* XCRemoteSwiftPackageReference "EmojiPicker" */;
 			productName = EmojiPicker;
 		};
 /* End XCSwiftPackageProductDependency section */

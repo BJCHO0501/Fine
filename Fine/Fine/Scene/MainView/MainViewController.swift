@@ -87,7 +87,6 @@ extension MainViewController {
             .bind {
                 let prView = MakeObjectViewController()
                 prView.modalPresentationStyle = .fullScreen
-                
                 self.present(prView, animated: true)
             }
             .disposed(by: disposeBag)
