@@ -167,4 +167,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let view = ObjectDetailViewController()
+        view.modalPresentationStyle = .fullScreen
+        present(view, animated: true)
+    }
 }

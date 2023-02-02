@@ -17,9 +17,10 @@ enum CategoryColor {
 }
 
 class MakeObjectViewController: UIViewController {
-    
     let disposeBag = DisposeBag()
     var category: CategoryColor = .red
+    
+    private let viewModel = MakeObjectViewModel()
     
     private let backgroundView = UIView().then {
         $0.backgroundColor = .white
@@ -49,8 +50,6 @@ class MakeObjectViewController: UIViewController {
         $0.textColor = .black
         $0.font = UIFont(name: "S-CoreDream-5Medium", size: 18)
     }
-    
-    private let testTextField = CustomTextfield(placeholder: "테스트 이죠")
     
     private let objectNameTextField = CustomTextfield(placeholder: "물건을 어떻게 부르나요?")
     
@@ -84,6 +83,7 @@ class MakeObjectViewController: UIViewController {
         $0.titleLabel?.font = UIFont(name: "S-CoreDream-6Bold", size: 20)
         $0.layer.cornerRadius = 5
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,8 +140,7 @@ extension MakeObjectViewController {
             blueCategoryButton,
             purpleCategoryButton,
             emojiButton,
-            enterButton,
-            testTextField
+            enterButton
         ].forEach({ backgroundView.addSubview($0) })
     }
     
@@ -240,6 +239,20 @@ extension MakeObjectViewController {
     }
     
     private func bind() {
+        let input = MakeObjectViewModel.Input(
+            nameText: objectNameTextField.rx.text,
+            locationText: objectLocationTextField.rx.text,
+            menualText: manualTextField.rx.text
+        )
+        let output = viewModel.transform(input: input)
+        
+        output.buttonStatus
+            .bind { value in
+                self.enterButton.backgroundColor = value ? UIColor(named: "purple1") : .gray
+                self.enterButton.isEnabled = value
+            }
+            .disposed(by: disposeBag)
+        
         emojiButton.rx.tap
             .bind { [self] in
                 let emojiViewController = EmojiPickerViewController()

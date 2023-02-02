@@ -36,6 +36,10 @@
 		4B60C590298558B300392568 /* CustomTextfield .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60C58F298558B300392568 /* CustomTextfield .swift */; };
 		4B68D891298678B200A367B6 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4B68D890298678B200A367B6 /* EmojiPicker */; };
 		4B68D89329867DE700A367B6 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B68D89229867DE700A367B6 /* CategoryButton.swift */; };
+		4B68D89A2987B89200A367B6 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B68D8992987B89200A367B6 /* ViewModelProtocol.swift */; };
+		4B68D89C2987B99200A367B6 /* MakeObjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B68D89B2987B99200A367B6 /* MakeObjectViewModel.swift */; };
+		4BAAF272298BC47100F4E051 /* ObjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAF271298BC47100F4E051 /* ObjectDetailViewController.swift */; };
+		4BAAF278298BE08600F4E051 /* UIView+roundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAF277298BE08600F4E051 /* UIView+roundCorners.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,10 @@
 		4B60C58829850DDC00392568 /* MakeObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeObjectViewController.swift; sourceTree = "<group>"; };
 		4B60C58F298558B300392568 /* CustomTextfield .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextfield .swift"; sourceTree = "<group>"; };
 		4B68D89229867DE700A367B6 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
+		4B68D8992987B89200A367B6 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		4B68D89B2987B99200A367B6 /* MakeObjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeObjectViewModel.swift; sourceTree = "<group>"; };
+		4BAAF271298BC47100F4E051 /* ObjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetailViewController.swift; sourceTree = "<group>"; };
+		4BAAF277298BE08600F4E051 /* UIView+roundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+roundCorners.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,8 @@
 		4B18F0722980070800015ACB /* Fine */ = {
 			isa = PBXGroup;
 			children = (
+				4BAAF274298BDF0500F4E051 /* Extension */,
+				4B68D8962987B81300A367B6 /* Protocol */,
 				4B60C591298558BC00392568 /* Componect */,
 				4B60C5852984F27C00392568 /* DataBace */,
 				4B60C578298167A900392568 /* Application */,
@@ -134,7 +144,8 @@
 		4B60C5772981674D00392568 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				4B60C58A29850DE100392568 /* MakeObjectView */,
+				4BAAF273298BC47600F4E051 /* ObjectDetail */,
+				4B68D8942987B7B400A367B6 /* MakeObject */,
 				4B60C57D2981749700392568 /* MainView */,
 			);
 			path = Scene;
@@ -181,6 +192,47 @@
 				4B68D89229867DE700A367B6 /* CategoryButton.swift */,
 			);
 			path = Componect;
+			sourceTree = "<group>";
+		};
+		4B68D8942987B7B400A367B6 /* MakeObject */ = {
+			isa = PBXGroup;
+			children = (
+				4B68D8952987B7FC00A367B6 /* MakeObjectViewModel */,
+				4B60C58A29850DE100392568 /* MakeObjectView */,
+			);
+			path = MakeObject;
+			sourceTree = "<group>";
+		};
+		4B68D8952987B7FC00A367B6 /* MakeObjectViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4B68D89B2987B99200A367B6 /* MakeObjectViewModel.swift */,
+			);
+			path = MakeObjectViewModel;
+			sourceTree = "<group>";
+		};
+		4B68D8962987B81300A367B6 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4B68D8992987B89200A367B6 /* ViewModelProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		4BAAF273298BC47600F4E051 /* ObjectDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4BAAF271298BC47100F4E051 /* ObjectDetailViewController.swift */,
+			);
+			path = ObjectDetail;
+			sourceTree = "<group>";
+		};
+		4BAAF274298BDF0500F4E051 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4BAAF277298BE08600F4E051 /* UIView+roundCorners.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,14 +333,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BAAF272298BC47100F4E051 /* ObjectDetailViewController.swift in Sources */,
 				4B68D89329867DE700A367B6 /* CategoryButton.swift in Sources */,
 				4B18F0AB29801CCB00015ACB /* FontNames.swift in Sources */,
 				4B60C57F2981753800392568 /* ObjectListTableViewCell.swift in Sources */,
 				4B18F0742980070800015ACB /* AppDelegate.swift in Sources */,
 				4B18F0762980070800015ACB /* SceneDelegate.swift in Sources */,
 				4B60C57C2981680100392568 /* MainViewController.swift in Sources */,
+				4B68D89A2987B89200A367B6 /* ViewModelProtocol.swift in Sources */,
 				4B60C590298558B300392568 /* CustomTextfield .swift in Sources */,
 				4B60C5872984F29D00392568 /* ObjectDataBace.swift in Sources */,
+				4B68D89C2987B99200A367B6 /* MakeObjectViewModel.swift in Sources */,
+				4BAAF278298BE08600F4E051 /* UIView+roundCorners.swift in Sources */,
 				4B60C58929850DDC00392568 /* MakeObjectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +491,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +519,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
