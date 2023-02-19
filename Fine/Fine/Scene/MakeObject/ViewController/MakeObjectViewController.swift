@@ -18,13 +18,19 @@ enum CategoryColor {
 
 class MakeObjectViewController: UIViewController {
     let disposeBag = DisposeBag()
-    var category: CategoryColor = .red
     
     private let viewModel = MakeObjectViewModel()
+    
+    private let selectEmoji = BehaviorRelay<String>(value: "📦")
     
     private let backgroundView = UIView().then {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 20
+    }
+    
+    private let backButton = UIButton(type: .system).then {
+        $0.setImage(UIImage(named: "back_button_arrow"), for: .normal)
+        $0.tintColor = .black
     }
     
     private let objectInfoLabel = UILabel().then {
@@ -88,34 +94,12 @@ class MakeObjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "gray1")
-        updateCategory()
         bind()
     }
     
     override func viewDidLayoutSubviews() {
         addSubviews()
         makeConstraints()
-    }
-}
-
-// MARK: - functions
-
-extension MakeObjectViewController {
-    private func updateCategory() {
-        [
-            redCategoryButton,
-            orangeCategoryButton,
-            yellowCategoryButton,
-            greenCategoryButton,
-            blueCategoryButton,
-            purpleCategoryButton
-        ].forEach {
-            if($0.categoryType == category) {
-                $0.check()
-            } else {
-                $0.uncheck()
-            }
-        }
     }
 }
 
@@ -140,7 +124,8 @@ extension MakeObjectViewController {
             blueCategoryButton,
             purpleCategoryButton,
             emojiButton,
-            enterButton
+            enterButton,
+            backButton
         ].forEach({ backgroundView.addSubview($0) })
     }
     
@@ -149,6 +134,12 @@ extension MakeObjectViewController {
             $0.right.left.equalToSuperview().inset(20)
             $0.topMargin.equalTo(15)
             $0.bottom.equalToSuperview().inset(30)
+        }
+        
+        backButton.snp.makeConstraints {
+            $0.width.height.equalTo(28)
+            $0.topMargin.equalTo(12)
+            $0.leftMargin.equalTo(9)
         }
         
         objectInfoLabel.snp.makeConstraints {
@@ -240,16 +231,43 @@ extension MakeObjectViewController {
     
     private func bind() {
         let input = MakeObjectViewModel.Input(
-            nameText: objectNameTextField.rx.text,
-            locationText: objectLocationTextField.rx.text,
-            menualText: manualTextField.rx.text
+            nameTextValueDriver: objectNameTextField.rx.text.orEmpty.asDriver(),
+            locationTextValueDriver: objectLocationTextField.rx.text.orEmpty.asDriver(),
+            manualTextValueDriver: manualTextField.rx.text.orEmpty.asDriver(),
+            enterButtonSignal: enterButton.rx.tap.asSignal(),
+            redCategoryButtonSignal: redCategoryButton.rx.tap.asDriver(),
+            orangeCategoryButtonSignal: orangeCategoryButton.rx.tap.asDriver(),
+            yellowCategoryButtonSignal: yellowCategoryButton.rx.tap.asDriver(),
+            greenCategoryButtonSignal: greenCategoryButton.rx.tap.asDriver(),
+            blueCategoryButtonSignal: blueCategoryButton.rx.tap.asDriver(),
+            purpleCategoryButtonSignal: purpleCategoryButton.rx.tap.asDriver(),
+            emojiValueDriver: selectEmoji.asDriver()
         )
         let output = viewModel.transform(input: input)
+
+        output.buttonStatus.asObservable()
+            .subscribe(onNext: { [unowned self] status in
+                enterButton.isEnabled = status
+                enterButton.backgroundColor = status ? .init(named: "purple1") : .lightGray
+            })
+            .disposed(by: disposeBag)
         
-        output.buttonStatus
-            .bind { value in
-                self.enterButton.backgroundColor = value ? UIColor(named: "purple1") : .gray
-                self.enterButton.isEnabled = value
+        output.categoryAction.asObservable()
+            .subscribe { [unowned self] category in
+                [
+                    redCategoryButton,
+                    orangeCategoryButton,
+                    yellowCategoryButton,
+                    greenCategoryButton,
+                    blueCategoryButton,
+                    purpleCategoryButton
+                ].forEach {
+                    if($0.categoryType == category) {
+                        $0.check()
+                    } else {
+                        $0.uncheck()
+                    }
+                }
             }
             .disposed(by: disposeBag)
         
@@ -262,60 +280,16 @@ extension MakeObjectViewController {
             }
             .disposed(by: disposeBag)
         
-        enterButton.rx.tap
-            .bind {
-                print("next")
-            }
-            .disposed(by: disposeBag)
-        
-        redCategoryButton.rx.tap
-            .bind { [self] in
-                category = .red
-                updateCategory()
-            }
-            .disposed(by: disposeBag)
-        
-        orangeCategoryButton.rx.tap
-            .bind { [self] in
-                category = .orange
-                updateCategory()
-            }
-            .disposed(by: disposeBag)
-        
-        yellowCategoryButton.rx.tap
-            .bind { [self] in
-                category = .yellow
-                updateCategory()
-            }
-            .disposed(by: disposeBag)
-        
-        greenCategoryButton.rx.tap
-            .bind { [self] in
-                category = .green
-                updateCategory()
-            }
-            .disposed(by: disposeBag)
-        
-        blueCategoryButton.rx.tap
-            .bind { [self] in
-                category = .blue
-                updateCategory()
-            }
-            .disposed(by: disposeBag)
-        
-        purpleCategoryButton.rx.tap
-            .bind { [self] in
-                category = .purple
-                updateCategory()
-            }
+        backButton.rx.tap
+            .bind { self.dismiss(animated: true)}
             .disposed(by: disposeBag)
     }
 }
-
 // MARK: - EmojiPickerDelegate
 
 extension MakeObjectViewController: EmojiPickerDelegate {
     func didGetEmoji(emoji: String) {
         emojiButton.setTitle(emoji, for: .normal)
+        selectEmoji.accept(emoji)
     }
 }

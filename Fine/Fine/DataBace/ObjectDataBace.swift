@@ -13,8 +13,8 @@ class ObjectData: Object {
     @objc dynamic var name = ""
     @objc dynamic var location = ""
     @objc dynamic var manual = ""
-    @objc dynamic var image = ""
-    @objc dynamic var saveDate = ""
     @objc dynamic var category = ""
+//    @objc dynamic var image = ""
+//    @objc dynamic var saveDate = ""
 //    @objc dynamic var GPSLocation = ""
 }

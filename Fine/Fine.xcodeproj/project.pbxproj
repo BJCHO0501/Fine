@@ -177,12 +177,12 @@
 			path = DataBace;
 			sourceTree = "<group>";
 		};
-		4B60C58A29850DE100392568 /* MakeObjectView */ = {
+		4B60C58A29850DE100392568 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				4B60C58829850DDC00392568 /* MakeObjectViewController.swift */,
 			);
-			path = MakeObjectView;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		4B60C591298558BC00392568 /* Componect */ = {
@@ -197,18 +197,18 @@
 		4B68D8942987B7B400A367B6 /* MakeObject */ = {
 			isa = PBXGroup;
 			children = (
-				4B68D8952987B7FC00A367B6 /* MakeObjectViewModel */,
-				4B60C58A29850DE100392568 /* MakeObjectView */,
+				4B68D8952987B7FC00A367B6 /* ViewModel */,
+				4B60C58A29850DE100392568 /* ViewController */,
 			);
 			path = MakeObject;
 			sourceTree = "<group>";
 		};
-		4B68D8952987B7FC00A367B6 /* MakeObjectViewModel */ = {
+		4B68D8952987B7FC00A367B6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				4B68D89B2987B99200A367B6 /* MakeObjectViewModel.swift */,
 			);
-			path = MakeObjectViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4B68D8962987B81300A367B6 /* Protocol */ = {
